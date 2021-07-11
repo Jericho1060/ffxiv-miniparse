@@ -1,6 +1,6 @@
 # ffxiv-miniparse
 
-A simple skin for the ACT overlay for Final Fantasy XIV
+A simple skin for the ACT overlay for Final Fantasy XIV. // Un simple skin pour l'overlay d'ACT pour Final Fantasy XIV.
 
 ## Original Creator and credits // Créateur original et Crédits
 
