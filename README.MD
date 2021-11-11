@@ -4,7 +4,7 @@ A simple skin for the ACT overlay for Final Fantasy XIV. // Un simple skin pour 
 
 # Guilded Server (better than Discord)
 
-You can join me on Guilded for help or suggestions or requests by following that link : https://guilded.jericho1060.com // vous pouvez me rejoindre sur Guilded pour des suggestions, de l'aide ou des demandes concernant ce projet en suivant ce lien https://guilded.jericho1060.com
+You can join me on Guilded for help or suggestions or requests by following that link : https://guilded.jericho.dev // vous pouvez me rejoindre sur Guilded pour des suggestions, de l'aide ou des demandes concernant ce projet en suivant ce lien https://guilded.jericho.dev
 
 ## Original Creator and credits // Créateur original et Crédits
 
