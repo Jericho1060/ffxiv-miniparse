@@ -2,6 +2,8 @@
 
 A simple skin for the ACT overlay for Final Fantasy XIV. // Un simple skin pour l'overlay d'ACT pour Final Fantasy XIV.
 
+![Display](https://raw.githubusercontent.com/Jericho1060/ffxiv-miniparse/main/resources/miniparse-screen.png)
+
 # Guilded Server (better than Discord)
 
 You can join me on Guilded for help or suggestions or requests by following that link : https://guilded.jericho.dev // vous pouvez me rejoindre sur Guilded pour des suggestions, de l'aide ou des demandes concernant ce projet en suivant ce lien https://guilded.jericho.dev
