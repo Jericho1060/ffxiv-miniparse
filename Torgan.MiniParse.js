@@ -249,7 +249,7 @@ function parseActFormat(str, dictionary) {
                         }
 
                         if (icon) {
-                            result += '<img src="icons/' + icon + '.png" /> ';
+                            result += '<img style="width:32px;" src="icons/' + icon + '.png" /> ';
                         }
                         break;
                     case 'name':

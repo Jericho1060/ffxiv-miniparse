@@ -1,0 +1,15 @@
+{
+  "name": "ffxiv-miniparse",
+  "version": "6.0.0",
+  "description": "FFXIV Mini Parse",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jericho1060/ffxiv-miniparse.git"
+  },
+  "author": "Jericho (https://jericho.dev)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jericho1060/ffxiv-miniparse/issues"
+  },
+  "homepage": "https://github.com/Jericho1060/ffxiv-miniparse#readme"
+}
