@@ -176,6 +176,12 @@ html {
 .dnc div.bar {
     background: linear-gradient(to top, rgba(105, 15, 15, 0.75), rgba(185, 30, 25, 0.75));
 }
+.sge div.bar {
+    background: linear-gradient(to top, rgba(47, 223, 155, 0.75), rgba(47, 223, 155, 0.75));
+}
+.rpr div.bar {
+    background: linear-gradient(to top, rgba(92, 22, 63, 0.75), rgba(92, 22, 63, 0.75));
+}
 .jobless div.bar {
     background: linear-gradient(to top, rgba(81, 81, 81, 0.75), rgba(160, 160, 160, 0.75));
 }

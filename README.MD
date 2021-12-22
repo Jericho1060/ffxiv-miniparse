@@ -12,11 +12,11 @@ I would like to thank you the original creator but i do not know his name. From 
 
 The original project was downloaded from a [youtube video by Mikoto](https://youtu.be/qw-q4hQ2WTY). // Le projet original a été téléchargé depuis une [vidéo Youtube de Mikoto](https://youtu.be/qw-q4hQ2WTY).
 
-I only updated the project to make it work with Stormblood and Shadowbringer with all new job icons and colors. // Je n'ai fait que rendre le projet compatible a 100% avec Stormblood et Shadowbringer en ajoutant les icones des nouveaux jobs et les couleurs associées.
+I only updated the project to make it work with Stormblood and Shadowbringer and Endwalker with all new job icons and colors. // Je n'ai fait que rendre le projet compatible a 100% avec Stormblood et Shadowbringer en ajoutant les icones des nouveaux jobs et les couleurs associées.
 
 ## Extension supported // Extensions supportées
 
-The miniparse overlay is compatible for all extensions of the game till Shadowbringer. // L'overlay miniparse est compatible pour toutes les extensions du jeu jusqu'à Shadowbringer.
+The miniparse overlay is compatible for all extensions of the game till Endwalker. // L'overlay miniparse est compatible pour toutes les extensions du jeu jusqu'à Endwalker.
 
 ## How to Install // Comment installer
 
