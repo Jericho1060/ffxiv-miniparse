@@ -1,4 +1,4 @@
-﻿let showFullName,
+﻿var showFullName,
     maxCombatantsShown,
     showDpsBar,
 
@@ -51,7 +51,7 @@ function update(data) {
 function updateEncounter(data) {
     // 要素取得
     // テキスト取得
-    let elementText,
+    var elementText,
         encounterData = viewModes[vMode].encounter;
     if (typeof encounterData === 'function') {
         elementText = encounterData(data.Encounter);
@@ -72,8 +72,8 @@ function updateEncounter(data) {
 
 // ヘッダを更新する
 function updateCombatantListHeader() {
-    for (let i = 0; i < headerDefine.length; i++) {
-        let cell = document.createElement("div");
+    for (var i = 0; i < headerDefine.length; i++) {
+        var cell = document.createElement("div");
         dpsMeterHeader.appendChild(cell);
         cell.className = "cell";
         // テキスト設定
@@ -104,12 +104,12 @@ function updateCombatantListHeader() {
 // プレイヤーリストを更新する
 function updateCombatantList(data) {
     // 要素取得＆作成
-    let newBody = document.createElement("div");
+    var newBody = document.createElement("div");
     newBody.id = "dpsMeterBody";
     newBody.className = "dpsMeterBody";
 
     // tbody の内容を作成
-    let combatantIndex = 0,
+    var combatantIndex = 0,
         barRef = 0,
         kMode;
 
@@ -117,7 +117,7 @@ function updateCombatantList(data) {
     else if (vMode === "tanking") kMode = "damagetaken";
     else kMode = "damage";
 
-    let CbtSorted = Object.keys(data.Combatant).sort(function (a, b) {
+    var CbtSorted = Object.keys(data.Combatant).sort(function (a, b) {
         if (+data.Combatant[a][kMode] < +data.Combatant[b][kMode]) return 1;
         if (+data.Combatant[a][kMode] > +data.Combatant[b][kMode]) return -1;
         if (a > b) return 1;
@@ -129,26 +129,26 @@ function updateCombatantList(data) {
 
     barRef = +data.Combatant[CbtSorted[0]][kMode];
 
-    for (let c = 0; c < CbtSorted.length; c++) {
-        let combatantName = CbtSorted[c];
-        let combatant = data.Combatant[combatantName],
+    for (var c = 0; c < CbtSorted.length; c++) {
+        var combatantName = CbtSorted[c];
+        var combatant = data.Combatant[combatantName],
             body = viewModes[vMode].body,
             row = document.createElement('div');
 
         newBody.appendChild(row);
         row.className = 'row ' + (combatant.Job !== '' ? combatant.Job.toLowerCase() : 'jobless') + (combatantName === "YOU" ? " you" : "");
 
-        for (let i = 0; i <= body.length; i++) {
-            let cell = document.createElement('div');
+        for (var i = 0; i <= body.length; i++) {
+            var cell = document.createElement('div');
             row.appendChild(cell);
             cell.className = 'cell';
 
             if (i === body.length) {
                 if (!showDpsBar) continue;
-                let bar = document.createElement("div");
+                var bar = document.createElement("div");
                 cell.appendChild(bar);
                 cell.className = "bar-container";
-                let width = Math.round(combatant[kMode] * 1 / barRef * 100 * 10) / 10;
+                var width = Math.round(combatant[kMode] * 1 / barRef * 100 * 10) / 10;
                 if (width) {
                     bar.style.width = width + "%";
                     bar.className += "bar";
@@ -158,11 +158,11 @@ function updateCombatantList(data) {
                 break;
             }
 
-            let type = typeof body[i].text !== 'undefined' ? 'text' : 'html';
+            var type = typeof body[i].text !== 'undefined' ? 'text' : 'html';
 
             // テキスト設定
             if (typeof body[i][type] !== 'undefined') {
-                let content;
+                var content;
                 if (typeof body[i][type] === 'function') {
                     content = body[i][type](combatant, combatantIndex);
                 } else {
@@ -195,25 +195,25 @@ function updateCombatantList(data) {
 
 // Miniparse フォーマット文字列を解析し、表示文字列を取得する
 function parseActFormat(str, dictionary) {
-    let result = "";
-    let currentIndex = 0;
+    var result = "";
+    var currentIndex = 0;
     do {
-        let openBraceIndex = str.indexOf('{', currentIndex);
+        var openBraceIndex = str.indexOf('{', currentIndex);
         if (openBraceIndex < 0) {
             result += str.slice(currentIndex);
             break;
         } else {
             result += str.slice(currentIndex, openBraceIndex);
-            let closeBraceIndex = str.indexOf('}', openBraceIndex);
+            var closeBraceIndex = str.indexOf('}', openBraceIndex);
             if (closeBraceIndex < 0) {
                 // parse error!
                 console.log("parseActFormat: Parse error: missing close-brace for " + openBraceIndex.toString() + ".");
                 return "ERROR";
             } else {
-                let tag = str.slice(openBraceIndex + 1, closeBraceIndex);
+                var tag = str.slice(openBraceIndex + 1, closeBraceIndex);
                 switch (tag) {
                     case "ENCDTPS":
-                        let encdtps = +dictionary["damagetaken"] / +dictionary["DURATION"];
+                        var encdtps = +dictionary["damagetaken"] / +dictionary["DURATION"];
                         if (isNaN(encdtps)) encdtps = 0;
                         else if (encdtps === Infinity) encdtps = +dictionary["damagetaken"] / +data.Encounter["DURATION"];
                         result += Math.round(encdtps);
@@ -227,7 +227,7 @@ function parseActFormat(str, dictionary) {
                         }
                         break;
                     case 'icon':
-                        let icon = '';
+                        var icon = '';
                         if (dictionary.Job) {
                             icon = dictionary.Job;
                         } else if (typeof dictionary.name === "undefined") {
@@ -253,7 +253,7 @@ function parseActFormat(str, dictionary) {
                         }
                         break;
                     case 'name':
-                        let o;
+                        var o;
                         if (displayName && dictionary[tag] === "YOU") {
                             result += displayName;
                         } else if (nameDisplayType !== "FN" && (o = dictionary[tag].indexOf(' ')) !== -1 && dictionary[tag] !== 'Limit Break') {
