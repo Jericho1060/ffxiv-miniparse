@@ -28,34 +28,49 @@
         useHTMLEncounterDefine = true;
         headerDefine = [];
         var viewModes = {
+            global: {
+                encounter: "<div class=\"time\">Time: <span>{duration}</span></div><div class=\"rdps\">Raid DPS: <span>{ENCDPS}</span></div><div class=\"rhps\">Raid HPS: <span>{ENCHPS}</span></div>",
+                body: [
+                    {html: "{icon}", class: "icon"},
+                    {text: "{name}", class: "name", header: "Name"},
+                    {text: "{OverHealPct}", class: "crit", header: "OH%"},
+                    {text: "{critheal%}", class: "crit", header: "Crit", width: '50'},
+                    {text: "{ENCHPS}", class: "hps", header: "HPS"},
+                    {text: "{DirectHitPct}", class: "crit", header: "DH"},
+                    {text: "{crithit%}", class: "crit", header: "Crit"},
+                    {text: "{ENCDPS}", class: "dps", header: "DPS"},
+                    {text: "{misses}", class: "miss", header: "miss", autohide: true}
+                ]
+            },
             damage: {
                 encounter: "<div class=\"rdps\">Raid DPS: <span>{ENCDPS}</span></div><div class=\"time\">Time: <span>{duration}</span></div>",
                 body: [
                     {html: "{icon}", class: "icon"},
-                    {text: "{name}", class: "name"},
-                    {text: "{crithit%}", class: "crit"},
-                    {text: "{ENCDPS}", class: "dps"},
-                    {text: "{misses}", class: "miss", autohide: true}
+                    {text: "{name}", class: "name", header: "Name"},
+                    {text: "{OverHealPct}", class: "oheal", header: "OH%"},
+                    {text: "{crithit%}", class: "crit", header: "Crit"},
+                    {text: "{ENCDPS}", class: "dps", header: "DPS"},
+                    {text: "{misses}", class: "miss", header: "miss", autohide: true}
                 ],
             },
             healing: {
                 encounter: "<div class=\"rdps\">Raid HPS: <span>{ENCHPS}</span></div><div class=\"time\">Time: <span>{duration}</span></div>",
                 body: [
                     {html: "{icon}", class: "icon"},
-                    {text: "{name}", class: "name"},
-                    {text: "{critheal%}", class: "crit"},
-                    {text: "{ENCHPS}", class: "dps"},
-                    {text: "{OverHealPct}", class: "oheal", autohide: true}
+                    {text: "{name}", class: "name", header: "Name"},
+                    {text: "{critheal%}", class: "crit", header: "CritH"},
+                    {text: "{ENCHPS}", class: "dps", header: "HPS"},
+                    {text: "{OverHealPct}", class: "oheal", header: "OH%", autohide: true}
                 ]
             },
             tanking: {
                 encounter: "<div class=\"rdps\">Raid DTPS: <span>{ENCDTPS}</span></div><div class=\"time\">Time: <span>{duration}</span></div>",
                 body: [
                     {html: "{icon}", class: "icon"},
-                    {text: "{name}", class: "name"},
-                    {text: "{ParryPct}", class: "crit"},
-                    {text: "{ENCDTPS}", class: "dps"},
-                    {text: "{BlockPct}", class: "block", autohide: true}
+                    {text: "{name}", class: "name", header: "Name"},
+                    {text: "{ParryPct}", class: "crit", header: "Parry%"},
+                    {text: "{ENCDTPS}", class: "dps", header: "DPS"},
+                    {text: "{BlockPct}", class: "block", header: "Block%", autohide: true}
                 ]
             }
         };
@@ -73,6 +88,7 @@
         <div id="dpsMeterBody" class="dpsMeterBody"></div>
     </div>
     <ul class="viewModes">
+        <li onclick="setMode('global');" class="global"></li>
         <li onclick="setMode('damage');" class="damage"></li>
         <li onclick="setMode('healing');" class="healing"></li>
         <li onclick="setMode('tanking');" class="tanking"></li>

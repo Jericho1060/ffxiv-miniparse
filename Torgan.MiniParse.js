@@ -8,7 +8,7 @@
     headerDefine,
     bodyDefine,
     viewModes,
-    vMode = "damage",
+    vMode = "global",
     data;
 
 function setMode(mode) {
@@ -41,10 +41,10 @@ document.addEventListener("onOverlayDataUpdate", function (e) {
 // 表示要素の更新
 function update(data) {
     updateEncounter(data);
+    updateCombatantList(data);
     if (dpsMeterHeader.childNodes.length === 0) {
         updateCombatantListHeader();
     }
-    updateCombatantList(data);
 }
 
 // エンカウント情報を更新する
@@ -138,7 +138,13 @@ function updateCombatantList(data) {
         newBody.appendChild(row);
         row.className = 'row ' + (combatant.Job !== '' ? combatant.Job.toLowerCase() : 'jobless') + (combatantName === "YOU" ? " you" : "");
 
+        headerDefine = [];
         for (var i = 0; i <= body.length; i++) {
+            if (body[i] && body[i].header) {
+                headerDefine.push({text: body[i].header, class: body[i].class});
+            } else if (body[i]) {
+                headerDefine.push({text: "", class: body[i].class});
+            }
             var cell = document.createElement('div');
             row.appendChild(cell);
             cell.className = 'cell';
@@ -180,7 +186,6 @@ function updateCombatantList(data) {
             if (typeof (body[i].class) !== 'undefined') {
                 cell.className += ' ' + body[i].class;
             }
-
         }
 
         if (maxCombatantsShown && ++combatantIndex === maxCombatantsShown) {
@@ -195,6 +200,7 @@ function updateCombatantList(data) {
 
 // Miniparse フォーマット文字列を解析し、表示文字列を取得する
 function parseActFormat(str, dictionary) {
+    console.log(JSON.stringify(dictionary));
     var result = "";
     var currentIndex = 0;
     do {
@@ -213,6 +219,7 @@ function parseActFormat(str, dictionary) {
                 var tag = str.slice(openBraceIndex + 1, closeBraceIndex);
                 switch (tag) {
                     case "ENCDTPS":
+                    case "encdtps":
                         var encdtps = +dictionary["damagetaken"] / +dictionary["DURATION"];
                         if (isNaN(encdtps)) encdtps = 0;
                         else if (encdtps === Infinity) encdtps = +dictionary["damagetaken"] / +data.Encounter["DURATION"];
