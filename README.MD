@@ -27,8 +27,6 @@ The miniparse overlay is compatible for all extensions of the game till Endwalke
 
 ## How to Install // Comment installer
 
-### 1 - Install Advanced Combat Tracker
-
 - [Installation Guide FR](https://github.com/Jericho1060/ffxiv-miniparse/blob/main/HowToInstallFR.md)
 - [Installation Guide EN](https://github.com/Jericho1060/ffxiv-miniparse/blob/main/HowToInstallEN.md)
 
