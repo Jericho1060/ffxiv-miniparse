@@ -2,8 +2,6 @@
 
 A simple skin for the ACT overlay for Final Fantasy XIV. // Un simple skin pour l'overlay d'ACT pour Final Fantasy XIV.
 
-![Display](https://raw.githubusercontent.com/Jericho1060/ffxiv-miniparse/main/resources/miniparse-screen.png)
-
 ![Display](https://raw.githubusercontent.com/Jericho1060/ffxiv-miniparse/main/resources/miniparse-screen-v6.1.0.png)
 
 ![Display](https://raw.githubusercontent.com/Jericho1060/ffxiv-miniparse/main/resources/screen_endwalker.png)
